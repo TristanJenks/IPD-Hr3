@@ -11,7 +11,11 @@ strategy_name = 'Operation look back into their history and caloude alot'
 strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
-    if len(my_history) < 2:
+
+    if len(my_history) <2:
+        return 'c'
+    elif their_history[-1]=='c':
+
         return 'c'
     elif len(my_history) == 199:
         return 'b'
