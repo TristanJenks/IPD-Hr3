@@ -13,12 +13,18 @@ strategy_description = 'How does this strategy decide?'
 def move(my_history, their_history, my_score, their_score):
     if len(my_history) < 2:
         return 'c'
-    elif their_history[-1]=='c':
-        return 'c'
     elif len(my_history) == 199:
         return 'b'
     elif their_history[-1]=='b' and their_history[-2]=='b':
         return 'b'
+    elif their_history[-1]=='c' and their_history[-2]=='c' and their_history[-3]=='b':
+        return 'b'
+    elif their_history[-1]=='b' and their_history[-2]=='c' and their_history[-3]=='c':
+        return 'b'
+    elif their_history[-1]=='c' and their_history[-2]=='b' and their_history[-3]=='c':
+        return 'b'
+    elif their_history[-1]=='c':
+        return 'c'
     else:
         return 'c'
     
